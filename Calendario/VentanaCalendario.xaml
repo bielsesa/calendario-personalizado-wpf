@@ -97,9 +97,8 @@
                     <UniformGrid Height="Auto" Width="Auto" Rows="6" Columns="7"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>                
+            <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <!--<Label Content="{Binding}" BorderBrush="Black" BorderThickness="1"/>-->
                     <ContentControl>
                         <ContentControl.Style>
                             <Style>
@@ -114,8 +113,6 @@
                             </Style>
                         </ContentControl.Style>
                     </ContentControl>
-
-                    <!--<Rectangle Fill="{Binding}"/>-->
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
