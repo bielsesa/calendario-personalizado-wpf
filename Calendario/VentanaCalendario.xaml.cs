@@ -15,10 +15,16 @@ namespace Calendario
             InitializeComponent(); 
             ListaDias = new ObservableCollection<DiaCalendario>();
 
+            bool festivo = false;
+            int fila = 0;
+            DateTime now = DateTime.Now;
+
             for (int i = 0; i < 42; i += 2)
             {
-                ListaDias.Add(new DiaCalendario(DateTime.Now, true));
-                ListaDias.Add(new DiaCalendario(DateTime.Now, false));
+                now = now.AddDays(1);
+                ListaDias.Add(new DiaCalendario(now, festivo, fila));
+                festivo = !festivo;
+                if (now.DayOfWeek == DayOfWeek.Sunday) fila++;
             }
 
             this.DataContext = this;

@@ -43,7 +43,6 @@
         </Style>
         
         <Style x:Key="LabelDiaFestivoStyle" TargetType="Label">
-
             <Setter Property="FontSize" Value="22px"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -55,12 +54,12 @@
 
         <ControlTemplate x:Key="diaLaborableTemplate">
             <Label Content="{Binding}" Style="{StaticResource LabelDiaLaborableStyle}" 
-                   GotMouseCapture="LabelDiaLaborable_GotMouseCapture"/>
+                   GotMouseCapture="LabelDiaLaborable_GotMouseCapture" />
         </ControlTemplate>
         
         <ControlTemplate x:Key="diaFestivoTemplate">
             <Label Content="{Binding}" Style="{StaticResource LabelDiaFestivoStyle}"
-                   GotMouseCapture="LabelDiaFestivo_GotMouseCapture"/>
+                   GotMouseCapture="LabelDiaFestivo_GotMouseCapture" />
         </ControlTemplate>        
     </Window.Resources>
 
@@ -134,6 +133,12 @@
                     </ContentControl>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Grid.Column" Value="{Binding Columna}"/>
+                    <Setter Property="Grid.Row" Value="{Binding Fila}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
         </ItemsControl>
         <!-- CALENDAR DAYS -->
     </Grid>
