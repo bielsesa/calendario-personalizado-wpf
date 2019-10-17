@@ -18,7 +18,7 @@
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
 
-        <Style x:Key="LabelDiaLaborableStyle" TargetType="Label">
+        <Style x:Key="LabelDiaLaborableStyle" TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="22px"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -41,8 +41,8 @@
                 </EventTrigger>
             </Style.Triggers>
         </Style>
-        
-        <Style x:Key="LabelDiaFestivoStyle" TargetType="Label">
+
+        <Style x:Key="LabelDiaFestivoStyle" TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="22px"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -50,17 +50,20 @@
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Background" Value="DarkGreen"/>
             <Setter Property="Opacity" Value="0.32"/>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseDown">
+                    
+                </EventTrigger>
+            </Style.Triggers>
         </Style>
 
         <ControlTemplate x:Name="DiaLaborableTemplate" x:Key="diaLaborableTemplate">
-            <Label x:Name="LabelDia" Content="{Binding}" Style="{StaticResource LabelDiaLaborableStyle}" 
-                   GotMouseCapture="LabelDiaLaborable_GotMouseCapture" />
+            <Label x:Name="LabelDia" Content="{Binding}" Style="{StaticResource LabelDiaLaborableStyle}" />
         </ControlTemplate>
 
         <ControlTemplate x:Name="DiaFestivoTemplate" x:Key="diaFestivoTemplate">
-            <Label x:Name="LabelDia" Content="{Binding}" Style="{StaticResource LabelDiaFestivoStyle}"
-                   GotMouseCapture="LabelDiaFestivo_GotMouseCapture" />
-        </ControlTemplate>        
+            <Label x:Name="LabelDia" Content="{Binding}" Style="{StaticResource LabelDiaFestivoStyle}" />
+        </ControlTemplate>
     </Window.Resources>
 
     <Grid>
@@ -111,7 +114,7 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
+                        </Grid.RowDefinitions>                        
                     </Grid>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Calendario
@@ -28,24 +29,22 @@ namespace Calendario
             }
 
             this.DataContext = this;
+
+            Console.WriteLine(DiaItemsControl.Items.Count);
         }
         public ObservableCollection<DiaCalendario> ListaDias
         {
             get;
             set;
         }
-        private void LabelDiaLaborable_GotMouseCapture(object sender, MouseEventArgs e)
-        {
-            Console.WriteLine("DiaLaborable");
-        }
-        private void LabelDiaFestivo_GotMouseCapture(object sender, MouseEventArgs e)
-        {
-            Console.WriteLine("DiaFestivo");
-        }
 
         private void LabelDia_GotMouseCapture(object sender, MouseEventArgs e)
         {
-            var template = DiaItemsControl.Template;
+            Console.WriteLine("MouseCapture LabelDia");
+            ContentPresenter cp = DiaItemsControl.ItemContainerGenerator.ContainerFromItem(DiaItemsControl) as ContentPresenter;
+            // he de recoger la label que se ha seleccionado en la grid
+
+            //Label labelDia = (Label)DiaItemsControl.ItemTemplate.FindName("LabelDia", DiaItemsControl); 
         }
     }
 }
