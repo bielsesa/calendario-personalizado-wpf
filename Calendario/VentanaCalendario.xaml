@@ -52,13 +52,13 @@
             <Setter Property="Opacity" Value="0.32"/>
         </Style>
 
-        <ControlTemplate x:Key="diaLaborableTemplate">
-            <Label Content="{Binding}" Style="{StaticResource LabelDiaLaborableStyle}" 
+        <ControlTemplate x:Name="DiaLaborableTemplate" x:Key="diaLaborableTemplate">
+            <Label x:Name="LabelDia" Content="{Binding}" Style="{StaticResource LabelDiaLaborableStyle}" 
                    GotMouseCapture="LabelDiaLaborable_GotMouseCapture" />
         </ControlTemplate>
-        
-        <ControlTemplate x:Key="diaFestivoTemplate">
-            <Label Content="{Binding}" Style="{StaticResource LabelDiaFestivoStyle}"
+
+        <ControlTemplate x:Name="DiaFestivoTemplate" x:Key="diaFestivoTemplate">
+            <Label x:Name="LabelDia" Content="{Binding}" Style="{StaticResource LabelDiaFestivoStyle}"
                    GotMouseCapture="LabelDiaFestivo_GotMouseCapture" />
         </ControlTemplate>        
     </Window.Resources>
@@ -89,7 +89,7 @@
         <!-- COLUMN HEADERS -->
 
         <!-- CALENDAR DAYS -->
-        <ItemsControl x:Name="itemsControl" ItemsSource="{Binding ListaDias}" Grid.Row="1" Grid.ColumnSpan="7"
+        <ItemsControl x:Name="DiaItemsControl" ItemsSource="{Binding ListaDias}" Grid.Row="1" Grid.ColumnSpan="7"
                       Background="White">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -116,7 +116,7 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:Name="DiasDataTemplate">
                     <ContentControl>
                         <ContentControl.Style>
                             <Style>
@@ -135,8 +135,9 @@
             </ItemsControl.ItemTemplate>
             <ItemsControl.ItemContainerStyle>
                 <Style>
-                    <Setter Property="Grid.Column" Value="{Binding Columna}"/>
-                    <Setter Property="Grid.Row" Value="{Binding Fila}"/>
+                    <Setter Property="Grid.Column" Value="{Binding Columna}" />
+                    <Setter Property="Grid.Row" Value="{Binding Fila}" />
+                    <EventSetter Event="Label.MouseDown" Handler="LabelDia_GotMouseCapture" />
                 </Style>
             </ItemsControl.ItemContainerStyle>
         </ItemsControl>

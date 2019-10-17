@@ -17,7 +17,7 @@ namespace Calendario
 
             bool festivo = false;
             int fila = 0;
-            DateTime now = DateTime.Now;
+            DateTime now = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
 
             for (int i = 0; i < 42; i += 2)
             {
@@ -29,21 +29,23 @@ namespace Calendario
 
             this.DataContext = this;
         }
-
         public ObservableCollection<DiaCalendario> ListaDias
         {
             get;
             set;
         }
-
         private void LabelDiaLaborable_GotMouseCapture(object sender, MouseEventArgs e)
         {
-
+            Console.WriteLine("DiaLaborable");
         }
-
         private void LabelDiaFestivo_GotMouseCapture(object sender, MouseEventArgs e)
         {
+            Console.WriteLine("DiaFestivo");
+        }
 
+        private void LabelDia_GotMouseCapture(object sender, MouseEventArgs e)
+        {
+            var template = DiaItemsControl.Template;
         }
     }
 }
