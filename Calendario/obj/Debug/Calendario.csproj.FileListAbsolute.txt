@@ -11,4 +11,3 @@ C:\Mis Proyectos\BIEL\Calendario\Calendario\obj\Debug\Calendario.Properties.Reso
 C:\Mis Proyectos\BIEL\Calendario\Calendario\obj\Debug\Calendario.csproj.GenerateResource.cache
 C:\Mis Proyectos\BIEL\Calendario\Calendario\obj\Debug\Calendario.exe
 C:\Mis Proyectos\BIEL\Calendario\Calendario\obj\Debug\Calendario.pdb
-C:\Mis Proyectos\BIEL\Calendario\Calendario\obj\Debug\Calendario.csprojAssemblyReference.cache

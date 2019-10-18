@@ -50,15 +50,10 @@
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Background" Value="DarkGreen"/>
             <Setter Property="Opacity" Value="0.32"/>
-            <Style.Triggers>
-                <EventTrigger RoutedEvent="MouseDown">
-                    
-                </EventTrigger>
-            </Style.Triggers>
         </Style>
 
         <ControlTemplate x:Name="DiaLaborableTemplate" x:Key="diaLaborableTemplate">
-            <Label x:Name="LabelDia" Content="{Binding}" Style="{StaticResource LabelDiaLaborableStyle}" />
+            <Label x:Name="LabelDia" Content="{Binding}" Style="{StaticResource LabelDiaLaborableStyle}" MouseDoubleClick="LabelDia_MouseDoubleClick" />
         </ControlTemplate>
 
         <ControlTemplate x:Name="DiaFestivoTemplate" x:Key="diaFestivoTemplate">
@@ -140,7 +135,6 @@
                 <Style>
                     <Setter Property="Grid.Column" Value="{Binding Columna}" />
                     <Setter Property="Grid.Row" Value="{Binding Fila}" />
-                    <EventSetter Event="Label.MouseDown" Handler="LabelDia_GotMouseCapture" />
                 </Style>
             </ItemsControl.ItemContainerStyle>
         </ItemsControl>

@@ -38,13 +38,13 @@ namespace Calendario
             set;
         }
 
-        private void LabelDia_GotMouseCapture(object sender, MouseEventArgs e)
+        private void LabelDia_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Console.WriteLine("MouseCapture LabelDia");
-            ContentPresenter cp = DiaItemsControl.ItemContainerGenerator.ContainerFromItem(DiaItemsControl) as ContentPresenter;
-            // he de recoger la label que se ha seleccionado en la grid
+            Label dia = sender as Label;
 
-            //Label labelDia = (Label)DiaItemsControl.ItemTemplate.FindName("LabelDia", DiaItemsControl); 
+            Console.WriteLine("LabelDia MouseDoubleClick");
+
+            Console.WriteLine(dia.Content);
         }
     }
 }
